@@ -1,9 +1,8 @@
-import { useState } from "react";
 import "semantic-ui-css/semantic.css";
-import { Header, Container, Menu } from "semantic-ui-react";
+import { Header, Container } from "semantic-ui-react";
+import TabBarContainer from '../components/tabBarContainer'
 
-export default function Sample() {
-  const [activeTab, setactiveTab] = useState("unitInfo");
+export default function Main() {
   const tabs = [
     { name: "unitInfo", label: "Unit Info" },
     { name: "pilots", label: "Pilots" },
@@ -18,15 +17,7 @@ export default function Sample() {
         </Header>
       </div>
       <Container>
-        <Menu tabular size="massive">
-          {tabs.map(({ name, label }) => {
-            return (
-              <Menu.Item name={name} active={name === activeTab ? true : false}>
-                {label}
-              </Menu.Item>
-            );
-          })}
-        </Menu>
+        <TabBarContainer tabs={tabs} size="massive" />
       </Container>
     </div>
   );
